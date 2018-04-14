@@ -1,0 +1,18 @@
+Elements:
+<ul class="list-group">
+  {{#elements}}
+    <li draggable="true" order="1">
+      Name: {{name}} Order: {{order}}
+    </li>
+  {{/elements}}
+</ul>
+<br>
+<br>
+Sorted Elements:
+<ul class="list-group">
+  {{#sortedElements}}
+    <li draggable="true" order="1">
+      Name: {{name}} Order: {{order}}
+    </li>
+  {{/sortedElements}}
+</ul>
