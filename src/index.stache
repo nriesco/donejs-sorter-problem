@@ -6,8 +6,17 @@
     <can-import from="~/styles.less" />
     <can-import from="~/app" export-as="viewModel" />
     <can-import from="~/demo/" />
+    <can-import from="~/demo-sort-2/" />
 
-    <h1>{{message}}</h1>
+
+
+
+
+<h1> Demo sort 2 (using AJAX request to public API)</h1>
+<demo-sort-2></demo-sort-2>
+
+
+    <h1>Demo sort (using feathers api)</h1>
 
     <demo>some demo?</demo>
 
