@@ -23,20 +23,13 @@ export const ViewModel = DefineMap.extend({
       this.myPromise.then(set);
     }
   },
-  sortedElements: {
+  modifiedElements: {
     get: function() {
-      if (platform.isNode) {
-        return this.elements;
-      } else {
-        if (this.elements instanceof DefineList) {
-          /**
-           * returning this.elements.sort() will cause the browser to freeze (infinite loop)
-           */
-          // return this.elements.sort(sorter);
-          return this.elements;
-        } else {
-          return this.elements;
-        }
+      if (this.elements !== undefined) {
+        return this.elements.map(element => {
+          element.order = 123; // this won't work on first load
+          return element;
+        });
       }
     }
   },

@@ -8,11 +8,11 @@ Elements:
 </ul>
 <br>
 <br>
-Sorted Elements:
+Modified Elements:
 <ul class="list-group">
-  {{#sortedElements}}
+  {{#modifiedElements}}
     <li draggable="true" order="1">
       Name: {{name}} Order: {{order}}
     </li>
-  {{/sortedElements}}
+  {{/modifiedElements}}
 </ul>
