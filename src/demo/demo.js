@@ -20,7 +20,7 @@ export const ViewModel = DefineMap.extend({
     // return new Promise((resolve, reject) => {
     //   let options = { url: 'https://jsonplaceholder.typicode.com/users' };
     //   $.ajax(options)
-    //     .done(resolve)
+    //     .done(data => resolve(new DefineList(data)))
     //     .fail(reject);
     // });
   },
