@@ -17,12 +17,26 @@ var sorter = function(a, b) {
 export const ViewModel = DefineMap.extend({
   get myPromise() {
     return DemoModel.getList({});
+    // return new Promise((resolve, reject) => {
+    //   let options = { url: 'https://jsonplaceholder.typicode.com/users' };
+    //   $.ajax(options)
+    //     .done(resolve)
+    //     .fail(reject);
+    // });
   },
   elements: {
     get: function(last, set) {
       this.myPromise.then(set);
     }
   },
+  // elementsTest: {
+  //   get: function(last, set) {
+  //     this.myPromise.then(data => {
+  //       data = data.sort(sorter);
+  //       return set(data);
+  //     });
+  //   }
+  // },
   sortedElements: {
     get: function() {
       if (this.elements !== undefined) {

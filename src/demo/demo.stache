@@ -1,3 +1,13 @@
+<!-- Elements test:
+<ul class="list-group">
+  {{#elementsTest}}
+    <li draggable="true" order="1">
+      Name: {{name}} Order: {{order}}
+    </li>
+  {{/elementsTest}}
+</ul>
+<br>
+<br> -->
 Elements:
 <ul class="list-group">
   {{#elements}}
