@@ -12,13 +12,13 @@
 
 
 
-<h1> Demo sort 2 (using AJAX request to public API)</h1>
-<demo-sort-2></demo-sort-2>
+<!-- <h1> Demo sort 2 (using AJAX request to public API)</h1> -->
+<!-- <demo-sort-2></demo-sort-2> -->
 
 
     <h1>Demo sort (using feathers api)</h1>
 
-    <demo>some demo?</demo>
+    <demo-1>some demo?</demo-1>
 
 
 

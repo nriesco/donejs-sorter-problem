@@ -16,3 +16,13 @@ Modified Elements:
     </li>
   {{/modifiedElements}}
 </ul>
+<br>
+<br>
+Sorted Elements:
+<ul class="list-group">
+  {{#sortedElements}}
+    <li draggable="true" order="1">
+      Name: {{name}} Order: {{order}}
+    </li>
+  {{/sortedElements}}
+</ul>
