@@ -5,10 +5,16 @@ import './demo-sort-2.less';
 import $ from 'jquery';
 import view from './demo-sort-2.stache';
 
+
+var sorter = function(a, b) {
+  let a2 = parseFloat(a.order);
+  let b2 = parseFloat(b.order);
+  return a2 > b2;
+};
+
+
+
 export const ViewModel = DefineMap.extend({
-  message: {
-    value: 'This is the demo-sort-2 component'
-  },
   get myPromise() {
     return new Promise((resolve, reject) => {
       let options = { url: 'https://jsonplaceholder.typicode.com/users' };
@@ -19,35 +25,29 @@ export const ViewModel = DefineMap.extend({
   },
   elements: {
     get: function(last, set) {
-      this.myPromise.then(set);
+      this.myPromise.then(set).catch(e => {
+        console.log('catch!!!', e);
+        return e;
+      });
     }
   },
-  filteredElements: {
+  sortedElements: {
     get: function() {
-      if (this.elements !== undefined) {
-        return this.elements.map(element => new DefineMap(element));
-      } else {
-        return this.elements;
-      }
-      // if (this.elements !== undefined) {
-      //   let out = this.elements.map(element => {
-      //     element = new DefineMap({ seal: false }, element);
-      //     // element = Object.assign({}, element);
-      //   });
-      //   return new DefineList(out);
-      // } else {
-      //   return this.elements;
+      return this.elements;
+      // return this.elements.get();
+      // if (this.elements !== undefined && typeof this.elements.get === 'function') {
+      //   return this.elements.get().sort(sorter);
       // }
-      // if (platform.isNode) {
-      //   return this.elements;
-      // } else {
-      //   if (this.elements instanceof DefineList) {
-      //     // returning this.elements.sort() will cause the browser to freeze (infinite loop)
-      //     // return this.elements.sort(sorter);
-      //     return this.elements;
-      //   } else {
-      //     return this.elements;
-      //   }
+    }
+  },
+  modifiedElements: {
+    get: function() {
+      return this.elements;
+      // if (this.elements !== undefined) {
+      //   return this.elements.get().map(element => {
+      //     element.order += ' super!';
+      //     return element;
+      //   });
       // }
     }
   },

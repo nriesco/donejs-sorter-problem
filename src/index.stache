@@ -1,35 +1,26 @@
 <html>
-  <head>
-    <title>{{title}}</title>
-  </head>
-  <body>
-    <can-import from="~/styles.less" />
-    <can-import from="~/app" export-as="viewModel" />
-    <can-import from="~/demo/" />
-    <can-import from="~/demo-sort-2/" />
 
+<head>
+  <title>{{title}}</title>
+</head>
 
+<body>
+  <can-import from="~/styles.less" />
+  <can-import from="~/app" export-as="viewModel" />
+  <can-import from="~/demo/" />
+  <can-import from="~/demo-sort-2/" />
+  <!-- <h1> Demo sort 2 (using AJAX request to public API)</h1> -->
+  <!-- <demo-sort-2></demo-sort-2> -->
+  <h1>Demo sort (using feathers api)</h1>
+  <demo-1>some demo?</demo-1>
+  {{#switch env.NODE_ENV}}
+    {{#case "production"}}
+      <script src="{{joinBase 'steal.production.js'}}"></script>
+    {{/case}}
+    {{#default}}
+      <script src="/node_modules/steal/steal.js"></script>
+    {{/default}}
+  {{/switch}}
+</body>
 
-
-
-<!-- <h1> Demo sort 2 (using AJAX request to public API)</h1> -->
-<!-- <demo-sort-2></demo-sort-2> -->
-
-
-    <h1>Demo sort (using feathers api)</h1>
-
-    <demo-1>some demo?</demo-1>
-
-
-
-
-    {{#switch env.NODE_ENV}}
-      {{#case "production"}}
-        <script src="{{joinBase 'steal.production.js'}}"></script>
-      {{/case}}
-      {{#default}}
-        <script src="/node_modules/steal/steal.js"></script>
-      {{/default}}
-    {{/switch}}
-  </body>
 </html>
