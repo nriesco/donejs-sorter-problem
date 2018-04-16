@@ -26,10 +26,12 @@ export const ViewModel = DefineMap.extend({
   modifiedElements: {
     get: function() {
       if (this.elements !== undefined) {
-        return this.elements.map(element => {
-          element.order = 123; // this won't work on first load
-          return element;
-        });
+        return this.elements.get().sort(sorter);
+        // return this.elements.map(element => {
+        //   // element.order = 123; // this won't work on first load
+        //   element.set('order', 123);
+        //   return element;
+        // });
       }
     }
   },
